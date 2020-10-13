@@ -1,13 +1,11 @@
 package com.example.stock_market
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
-import android.widget.Button
-import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class Form_Actiivity: AppCompatActivity() {
 
     private fun hideSystemUI() {
         // Ativa o modo imersivo de tela
@@ -27,18 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.form_activity)
         hideSystemUI()
-
-        var button:Button = findViewById(R.id.button_add_card)
-        button.setOnClickListener(){
-            intent = Intent(this, Form_Actiivity ::class.java)
-            startActivity(intent)
-        }
-
-
-
     }
-
-
 }

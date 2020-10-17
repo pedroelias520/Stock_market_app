@@ -22,7 +22,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/qnt_text"
                     android:textStyle="bold"
-                    android:textSize="15dp"
+                    android:textSize="20dp"
                     android:layout_margin="5dp"
                     android:textColor="#aaaaaa"
                     android:text="Nome"
@@ -36,13 +36,13 @@
                     android:layout_height="40dp"
                     android:id="@+id/preco_text"
                     android:textStyle="normal"
-                    android:textSize="10dp"
+                    android:textSize="15dp"
                     android:layout_margin="5dp"
                     android:textColor="#aaaaaa"
                     android:text="00:00"
                     android:gravity="center"
 
-                    app:fontFamily="@font/montserratlight"/>
+                    app:fontFamily="@font/montserrat"/>
 
         </LinearLayout>
 
@@ -63,9 +63,32 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:background="@drawable/circle_corners"
+                android:textColor="#aaaaaa"
                 android:fontFamily="@font/montserratlight"
                 android:textSize="24sp"/>
+        <LinearLayout
+                android:layout_gravity="right"
+                android:orientation="horizontal"
+                android:layout_width="140dp"
+                android:layout_height="50dp">
+            <ImageView
+                    android:layout_margin="10dp"
+                    android:layout_gravity="right"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@android:drawable/ic_menu_edit"
+                    android:id="@+id/Up_Button"/>
+            <ImageView
+                    android:onClick="DeleteItem"
+                    android:outlineSpotShadowColor="@android:color/white"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="right"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    app:srcCompat="@android:drawable/ic_menu_delete"
+                    android:id="@+id/Del_Button"/>
+        </LinearLayout>
+
 
     </LinearLayout>
 

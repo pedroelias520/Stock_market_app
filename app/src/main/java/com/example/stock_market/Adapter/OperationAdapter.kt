@@ -8,7 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import com.example.stock_market.Database.DBhelper
 
 class MyAdapter(var mCtx:Context,var resources:Int,var items:List<Operation_model>):ArrayAdapter<Operation_model>(mCtx,resources,items) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -24,19 +27,29 @@ class MyAdapter(var mCtx:Context,var resources:Int,var items:List<Operation_mode
         NomeView.text = mItem.name
         PrecoView.text = mItem.price.toString()
         TipoView.text = mItem.type
-        CotacaoView.text = mItem.qnt.toString()
+        val id = mItem.id
 
         when(mItem.type){
             "Compra" -> {
                 TipoView.text = "Compra"
                 TipoView.setTextColor(Color.GREEN)
+                CotacaoView.text = "${mItem.qnt.toString()} unidades compradas"
+                CotacaoView.setTextColor(Color.GREEN)
             }
 
             "Venda" -> {
                 TipoView.text = "Venda"
                 TipoView.setTextColor(Color.RED)
+                CotacaoView.text = "${mItem.qnt.toString()} unidades vendidas"
+                CotacaoView.setTextColor(Color.RED)
             }
         }
+
+        fun DeleteItem() {
+            DBhelper(context).deleteReminder(id)
+            print("Função de adaptador ativada")
+        }
+
 
         return view
     }

@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ListView
+import android.widget.Toast
 import com.example.stock_market.Adapter.MyAdapter
 import com.example.stock_market.Database.DBhelper
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.row.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,8 +53,6 @@ class MainActivity : AppCompatActivity() {
             intent = Intent(this, Form_Actiivity ::class.java)
             startActivity(intent)
         }
-
-
 
     }
 

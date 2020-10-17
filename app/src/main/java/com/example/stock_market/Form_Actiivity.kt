@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
 import android.widget.*
+import com.example.stock_market.Adapter.item_added
 import com.example.stock_market.Database.DBhelper
 import com.example.stock_market.Model.MaskEditUtil
 import com.example.stock_market.Model.Operation_model
@@ -64,8 +65,9 @@ class Form_Actiivity : AppCompatActivity() {
             val preco = preco_plain.text.toString()
             val cotacao = cotacao_plain.text.toString()
             val name = nome_plain.text.toString()
-
-            val valorCompra = Controller().ValorCompra(quantidade = quantidade.toInt(), preco = preco.toFloat())
+            print(quantidade)
+            print(preco)
+            val valorCompra = Controller().ValorCompra(quantidade = quantidade.toFloat(), preco = preco.toFloat())
             val taxas = Controller().CalcularTaxas(valorCompra, cotacao = cotacao.toFloat())
             val ValorNegociacao = Controller().valorNegociacao(tipo_operacao, valorCompra, taxas)
 
@@ -84,6 +86,9 @@ class Form_Actiivity : AppCompatActivity() {
                     valorNegociacao = ValorNegociacao
                 )
                 DBhelper(context = applicationContext).addReminder(operacao)
+                item_added = operacao
+                var intent = Intent(this, Confirm_Screen::class.java)
+                startActivity(intent)
             }
 
 

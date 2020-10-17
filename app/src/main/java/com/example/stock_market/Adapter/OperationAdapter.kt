@@ -22,11 +22,13 @@ class MyAdapter(var mCtx:Context,var resources:Int,var items:List<Operation_mode
         val PrecoView:TextView = view.findViewById(R.id.preco_text)
         val TipoView:TextView = view.findViewById(R.id.cotacao_text)
         val CotacaoView:TextView = view.findViewById(R.id.Important)
+        val ValorCompra:TextView = view.findViewById(R.id.valor_compra)
 
         val mItem:Operation_model = items[position]
         NomeView.text = mItem.name
         PrecoView.text = mItem.price.toString()
         TipoView.text = mItem.type
+        ValorCompra.text = mItem.valorCompra.toString()
         val id = mItem.id
 
         when(mItem.type){
@@ -54,4 +56,13 @@ class MyAdapter(var mCtx:Context,var resources:Int,var items:List<Operation_mode
         return view
     }
 }
-
+var item_added: Operation_model = Operation_model(id = 0,
+    name = "Name",
+    type = "Type",
+    qnt = 0,
+    price = (0.0).toFloat(),
+    corretage_price = (0.0).toFloat(),
+    taxas = (0.0).toFloat(),
+    valorCompra = (0.0).toFloat(),
+    valorNegociacao = (0.0).toFloat()
+)

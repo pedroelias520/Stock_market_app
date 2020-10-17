@@ -10,6 +10,7 @@ import android.widget.ListView
 import android.widget.Toast
 import com.example.stock_market.Adapter.MyAdapter
 import com.example.stock_market.Database.DBhelper
+import com.example.stock_market.Model.Operation_model
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.row.*
 
@@ -40,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         var list = dBhelper.getAllOperations()
         var listView:ListView = list_itens
         listView.adapter = MyAdapter(this, R.layout.row,list)
-
         var button:Button = findViewById(R.id.button_add_card)
         var refresh:Button = findViewById(R.id.button_update_card)
 

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="10dp">
+
+    <LinearLayout
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:background="@drawable/corners_border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/qnt_text"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_margin="5dp"
+                    android:textColor="#aaaaaa"
+                    android:text="Nome"
+                    android:gravity="center"
+
+                    app:fontFamily="@font/montserratlight"/>
+
+            <TextView
+                    android:layout_width="100dp"
+                    android:width="150dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/preco_text"
+                    android:textStyle="normal"
+                    android:textSize="10dp"
+                    android:layout_margin="5dp"
+                    android:textColor="#aaaaaa"
+                    android:text="00:00"
+                    android:gravity="center"
+
+                    app:fontFamily="@font/montserratlight"/>
+
+        </LinearLayout>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cotacao_text"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:layout_margin="5dp"
+                android:textColor="#aaaaaa"
+                android:text="Descricao"
+                android:gravity="center"
+                app:fontFamily="@font/montserrat"/>
+        <TextView
+                android:id="@+id/Important"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/circle_corners"
+                android:fontFamily="@font/montserratlight"
+                android:textSize="24sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

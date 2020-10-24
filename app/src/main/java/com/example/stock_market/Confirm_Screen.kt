@@ -1,8 +1,10 @@
 package com.example.stock_market
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +42,7 @@ class Confirm_Screen : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.confirm_screen)
 
+        var button:Button = findViewById(R.id.button)
         var nome:TextView = findViewById(R.id.nome_text)
         var custo_unitario:TextView = findViewById(R.id.cust_text)
         var quantidade: TextView = findViewById(R.id.qtn_text)
@@ -47,12 +50,17 @@ class Confirm_Screen : AppCompatActivity(){
         var cust_liquid:TextView = findViewById(R.id.cust_liquidacao_text)
         var cust_negoc:TextView = findViewById(R.id.cust_negociation_text)
 
+        button.setOnClickListener(){
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
         nome.text = item_added.name
-        custo_unitario.text = "${item_added.price.toString()} de valor"
-        cust_corretagem.text = "${item_added.corretage_price.toString()} de corretagem"
-        quantidade.text = "${item_added.qnt.toString()} unidades"
-        cust_liquid.text = "${item_added.taxas.toString()} de liquidação"
-        cust_negoc.text = "${item_added.valorNegociacao.toString()} de negociacao"
+        custo_unitario.text = "${item_added.price.toString()}R$ de valor"
+        cust_corretagem.text = "${item_added.corretage_price.toString()}R$ de corretagem"
+        quantidade.text = "${item_added.qnt.toString()} unidade(s)"
+        cust_liquid.text = "${item_added.taxas.toString()}R$ de taxas"
+        cust_negoc.text = "${item_added.valorNegociacao.toString()}R$ de negociacao"
 
 
     }

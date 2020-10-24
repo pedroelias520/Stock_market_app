@@ -48,13 +48,13 @@ class DBhelper(context: Context):SQLiteOpenHelper(context,DATABASE_NAME,null,DAT
             while(moveToNext()) {
                 val id = cursor.getInt(cursor.getColumnIndex(COL_ID))
                 val name = cursor.getString(cursor.getColumnIndex(COL_NAME))
-                var custo = cursor.getFloat(cursor.getColumnIndex(COL_CUSTO))
+                var custo = cursor.getDouble(cursor.getColumnIndex(COL_CUSTO))
                 var quantidade = cursor.getInt(cursor.getColumnIndex(COL_UNIDADES))
-                var custo_corretagem = cursor.getFloat(cursor.getColumnIndex(COL_CUSTO_CORRETAGEM))
+                var custo_corretagem = cursor.getDouble(cursor.getColumnIndex(COL_CUSTO_CORRETAGEM))
                 var tipo = cursor.getString(cursor.getColumnIndex(COL_TIPO))
-                var valor_compra = cursor.getFloat(cursor.getColumnIndex(COL_VALOR_COMPRA))
-                var taxas = cursor.getFloat(cursor.getColumnIndex(COL_TAXAS))
-                var valor_negociacao = cursor.getFloat(cursor.getColumnIndex(COL_VALOR_NEGOCIACAO))
+                var valor_compra = cursor.getDouble(cursor.getColumnIndex(COL_VALOR_COMPRA))
+                var taxas = cursor.getDouble(cursor.getColumnIndex(COL_TAXAS))
+                var valor_negociacao = cursor.getDouble(cursor.getColumnIndex(COL_VALOR_NEGOCIACAO))
 
 
                 var operation = Operation_model(

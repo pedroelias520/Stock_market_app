@@ -29,7 +29,6 @@ class MyAdapter(var mCtx:Context,var resources:Int,var items:List<Operation_mode
         PrecoView.text = mItem.price.toString()
         TipoView.text = mItem.type
         ValorCompra.text = mItem.valorCompra.toString()
-        val id = mItem.id
 
         when(mItem.type){
             "Compra" -> {
@@ -46,13 +45,6 @@ class MyAdapter(var mCtx:Context,var resources:Int,var items:List<Operation_mode
                 CotacaoView.setTextColor(Color.RED)
             }
         }
-
-        fun DeleteItem() {
-            DBhelper(context).deleteReminder(id)
-            print("Função de adaptador ativada")
-        }
-
-
         return view
     }
 }
@@ -60,9 +52,9 @@ var item_added: Operation_model = Operation_model(id = 0,
     name = "Name",
     type = "Type",
     qnt = 0,
-    price = (0.0).toFloat(),
-    corretage_price = (0.0).toFloat(),
-    taxas = (0.0).toFloat(),
-    valorCompra = (0.0).toFloat(),
-    valorNegociacao = (0.0).toFloat()
+    price = (0.0),
+    corretage_price = (0.0),
+    taxas = (0.0),
+    valorCompra = (0.0),
+    valorNegociacao = (0.0)
 )

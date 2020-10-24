@@ -91,7 +91,6 @@
                     app:srcCompat="@android:drawable/ic_menu_edit"
                     android:id="@+id/Up_Button"/>
             <ImageView
-                    android:onClick="DeleteItem"
                     android:outlineSpotShadowColor="@android:color/white"
                     android:layout_margin="10dp"
                     android:layout_gravity="right"

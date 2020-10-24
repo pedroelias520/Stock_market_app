@@ -39,8 +39,8 @@ class Form_Actiivity : AppCompatActivity() {
         var preco_plain: EditText = findViewById(R.id.preco_plain)
         var cotacao_plain: EditText = findViewById(R.id.cotacao_plain)
         var quantidade_plain: EditText = findViewById(R.id.quantidade_plain)
-        preco_plain.addTextChangedListener(MaskEditUtil.mask(preco_plain, "##.##"))
-        cotacao_plain.addTextChangedListener(MaskEditUtil.mask(cotacao_plain, "##.##"))
+        preco_plain.addTextChangedListener(MaskEditUtil.mask(preco_plain, "###.##"))
+        cotacao_plain.addTextChangedListener(MaskEditUtil.mask(cotacao_plain, "###.##"))
 
         var criar_button: Button = findViewById(R.id.criar_button)
         var radioGroup: RadioGroup = findViewById(R.id.radioGroup)
@@ -65,11 +65,10 @@ class Form_Actiivity : AppCompatActivity() {
             val preco = preco_plain.text.toString()
             val cotacao = cotacao_plain.text.toString()
             val name = nome_plain.text.toString()
-            print(quantidade)
             print(preco)
-            val valorCompra = Controller().ValorCompra(quantidade = quantidade.toFloat(), preco = preco.toFloat())
+            val valorCompra = Controller().ValorCompra(quantidade = quantidade.toInt(), preco = preco.toFloat())
             val taxas = Controller().CalcularTaxas(valorCompra, cotacao = cotacao.toFloat())
-            val ValorNegociacao = Controller().valorNegociacao(tipo_operacao, valorCompra, taxas)
+            val ValorNegociacao = Controller().valorNegociacao(tipo_operacao, valorCompra, taxas.toDouble())
 
             if (radioGroup.checkedRadioButtonId == -1) {
                 Toast.makeText(applicationContext, "Selecione o tipo de venda", Toast.LENGTH_LONG).show()
@@ -79,8 +78,8 @@ class Form_Actiivity : AppCompatActivity() {
                     name = name,
                     type = tipo_operacao,
                     qnt = quantidade.toInt(),
-                    price = preco.toFloat(),
-                    corretage_price = cotacao.toFloat(),
+                    price = preco.toDouble(),
+                    corretage_price = cotacao.toDouble(),
                     taxas = taxas,
                     valorCompra = valorCompra,
                     valorNegociacao = ValorNegociacao
@@ -90,8 +89,6 @@ class Form_Actiivity : AppCompatActivity() {
                 var intent = Intent(this, Confirm_Screen::class.java)
                 startActivity(intent)
             }
-
-
         }
 
     }
